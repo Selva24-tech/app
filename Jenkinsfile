@@ -27,7 +27,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sshagent(credentials: ['your-ssh-credentials-id']) {
+                sshagent(credentials: ['5db0520d-6728-4730-879e-8169e80b5b7f']) {
                     sh '''
                         echo "Deploying artifact to remote server..."
                         scp -o StrictHostKeyChecking=no target/jenkinsproject1-java-1.0-SNAPSHOT.jar ubuntu@54.169.113.164:/opt/app/
