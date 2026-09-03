@@ -24,6 +24,17 @@ pipeline {
             steps {
                 sh 'mvn package'
             }
+        stage('Deploy') {
+             steps {
+              {
+             sh '''
+                echo "Deploying artifact to remote server..."
+                scp target/jenkinsproject1-java-1.0-SNAPSHOT.jar ubuntu@54.169.113.164:/opt/app/
+                ssh ubuntu@54.169.113.164 "systemctl restart jenkinsproject1"
+            '''
+        }
+    }
+}
         }
     }
 
