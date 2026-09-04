@@ -30,7 +30,7 @@ pipeline {
                 sshagent(credentials: ['sel2']) {
                     sh '''
                         echo "Deploying artifact to remote server..."
-                        scp -o StrictHostKeyChecking=no target/jenkinsproject1-java-1.0-SNAPSHOT.jar ubuntu@54.253.129.59:/opt/app/
+                        scp -o StrictHostKeyChecking=no target/jenkinsproject1-java-1.0-SNAPSHOT.jar ubuntu@54.253.129.59:/opt/app
                         ssh -o StrictHostKeyChecking=no ubuntu@54.253.129.59 "systemctl restart jenkinsproject1"
                     '''
                 }
